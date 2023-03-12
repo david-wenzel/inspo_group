@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
 import Signup from "./Signup";
+import AddBoardForm from "./AddBoardForm"
+import Boards from "./Boards"
+import Home from "./Home"
 
 import './App.css';
 
@@ -29,7 +32,7 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         if (!data.errors) {
-          setGames([...boards, data]);
+          setBoards([...boards, data]);
           navigate("/boards");
         } else {
           setErrorsList(errorsList);

@@ -27,7 +27,7 @@ function Signup() {
       .then((user) => {
         if (!user.errors) {
           signup(user);
-          navigate("/");
+        //   navigate("/");
         } else {
           setUsername("");
           setPassword("");
@@ -39,52 +39,37 @@ function Signup() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Username (minimum 2 characters){" "}
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={values.username}
-            onChange={handleInputChange}
-          ></input>
-        </label>
-        <br></br>
-        <label>
-          Password (must be 2-8 characters){" "}
-          <input
-            type="password"
-            name="password"
-            // added autoComplete attribute per console log message
-            autoComplete="off"
-            placeholder="Password"
-            value={values.password}
-            onChange={handleInputChange}
-          ></input>
-        </label>
-        <br></br>
-        <label>
-          Confirm Password{" "}
-          <input
-            type="password"
-            name="password_confirmation"
-            // added autoComplete attribute per console log message
-            autoComplete="off"
-            placeholder="must match password"
-            value={values.password_confirmation}
-            onChange={handleInputChange}
-          ></input>
-        </label>
-        <input type="submit" value={isLoading ? "Loading..." : "Submit"} />
+    <form onSubmit={handleSubmit}>
+      <input
+        id="username"
+        label="Username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      ></input>
+      <br />
+      <input
+        label="Password"
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      ></input>
+      <br />
+      <input
+        label="Password Confirmation"
+        type="password"
+        value={passwordConfirmation}
+        onChange={(e) => setPasswordConfirmation(e.target.value)}
+      ></input>
+      <br />
+      <input type="submit" />
       </form>
-      {/* if there are errors, display them in red */}
-      {errors.map((err) => (
+      {errorsList.map((err) => (
         <li style={{ color: "red" }} key={err}>
           {err}
         </li>
-      ))}
-    </div>
+      ))}    
+      </div>
+
   );
 }
 
