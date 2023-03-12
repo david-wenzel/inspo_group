@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :posts, except: [:show, :index]
-  resources :board, except: [:show, :update] do
+  resources :boards, except: [:show, :update] do
     resources :posts, only: [ :create]
   end
 
