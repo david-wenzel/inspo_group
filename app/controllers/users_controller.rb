@@ -7,4 +7,15 @@ class UsersController < ApplicationController
         render json: user, status: :created
     end
 
+    def show
+        user = User.find(session[:user_id])
+        render json: user, include: :reviews
+    end
+
+    private
+
+    def user_params
+        params.permit(:username, :password, :password_confirmation)
+    end
+
 end
