@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :posts, except: [:show, :index]
+  resources :board, except: [:show, :update] do
+    resources :posts, only: [ :create]
+  end
+
   
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
