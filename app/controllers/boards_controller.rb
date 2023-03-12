@@ -19,4 +19,14 @@ class BoardsController < ApplicationController
         board.destroy
         head :no_content
     end
+
+    private
+
+    def board_params
+        params.permit(:title)
+    end
+
+    def render_not_found_response
+        return render json: { error: "Board not found"}, status: :not_found
+    end
 end
