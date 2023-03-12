@@ -1,4 +1,4 @@
-
+import { UserProvider } from "./context/user";
 import './App.css';
 
 function App() {
@@ -43,6 +43,8 @@ function App() {
 
   return (
     <div className="App">
+    <UserProvider>
+
       <NavBar />
           <Routes>
             <Route path="/" element={<Home />} />
@@ -66,6 +68,8 @@ function App() {
               }
             />
           </Routes>
+          </UserProvider>
+
     </div>
   );
 }
