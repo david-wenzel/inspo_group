@@ -1,5 +1,8 @@
 import { UserProvider } from "./context/user";
 import { useEffect, useState } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import NavBar from "./NavBar";
+import Signup from "./Signup";
 
 import './App.css';
 
@@ -29,10 +32,7 @@ function App() {
           setGames([...boards, data]);
           navigate("/boards");
         } else {
-          const errorList = data.errors.map((e) => (
-            <Alert severity="error">{e}</Alert>
-          ));
-          setErrorsList(errorList);
+          setErrorsList(errorsList);
         }
       });
   }
