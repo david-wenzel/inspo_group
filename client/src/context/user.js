@@ -28,11 +28,11 @@ function UserProvider({ children }) {
     setLoggedIn(true); // set loggedIn flag
   }
 
-//   function logout() {
-//     navigate("/");
-//     setUser({});
-//     setLoggedIn(false); // set loggedIn flag
-//   }
+  function logout() {
+    // navigate("/");
+    setUser({});
+    setLoggedIn(false); // set loggedIn flag
+  }
 
   function signup(user) {
     setUser(user);
@@ -46,9 +46,9 @@ function UserProvider({ children }) {
         user,
         setUser,
         login,
-        // logout,
-        signup
-        // loggedIn,
+        logout,
+        signup,
+        loggedIn
       }}
     >
       {children}

@@ -1,7 +1,7 @@
 import { UserProvider } from "./context/user";
 // import { useEffect, useState } from "react";
 // import { Route, Routes, useNavigate } from "react-router-dom";
-// import NavBar from "./NavBar";
+import NavBar from "./NavBar";
 import Signup from "./Signup";
 // import AddBoardForm from "./AddBoardForm"
 // import Boards from "./Boards"
@@ -52,10 +52,9 @@ function App() {
   return (
     <div className="App">
     <UserProvider>
-            
+      <NavBar />
       <Signup />
       <Login />
-
       </UserProvider>
 
     </div>
