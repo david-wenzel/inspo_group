@@ -15,11 +15,11 @@ function UserProvider({ children }) {
       .then((res) => res.json())
       .then((data) => {
         setUser(data);
-        // if (data.errors) {
-        //   setLoggedIn(false);
-        // } else {
-        //   setLoggedIn(true);
-        // }
+        if (data.errors) {
+          setLoggedIn(false);
+        } else {
+          setLoggedIn(true);
+        }
       });
   }, []);
 

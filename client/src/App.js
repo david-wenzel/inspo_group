@@ -16,7 +16,7 @@ function App() {
 
 //   const [boards, setBoards] = useState([]);
 //   const navigate = useNavigate();
-//   const [errorsList, setErrorsList] = useState([]);
+  // const [errorsList, setErrorsList] = useState([]);
 
 //   useEffect(() => {
 //     fetch("/boards")
