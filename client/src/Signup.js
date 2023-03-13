@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "./context/user";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const [username, setUsername] = useState("");
@@ -8,7 +8,7 @@ function Signup() {
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errorsList, setErrorsList] = useState([]);
   const { signup } = useContext(UserContext);
-  const navigate = useNavigate();
+//   const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -40,9 +40,12 @@ function Signup() {
   return (
     <div>
     <form onSubmit={handleSubmit}>
+    <span style={{ fontWeight: "bold" }}>Create Account:</span>
+    <br/>
       <input
         id="username"
         label="Username"
+        placeholder="username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       ></input>
@@ -50,6 +53,7 @@ function Signup() {
       <input
         label="Password"
         type="password"
+        placeholder="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       ></input>
@@ -57,6 +61,7 @@ function Signup() {
       <input
         label="Password Confirmation"
         type="password"
+        placeholder="confirm password"
         value={passwordConfirmation}
         onChange={(e) => setPasswordConfirmation(e.target.value)}
       ></input>
