@@ -10,6 +10,7 @@ import Signup from "./Signup";
 
 
 import './App.css';
+import Login from "./Login";
 
 function App() {
 
@@ -53,6 +54,7 @@ function App() {
     <UserProvider>
             
       <Signup />
+      <Login />
 
       </UserProvider>
 

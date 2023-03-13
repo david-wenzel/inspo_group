@@ -7,7 +7,7 @@ const UserContext = React.createContext();
 //create provider component
 function UserProvider({ children }) {
   const [user, setUser] = useState({});
-//   const [loggedIn, setLoggedIn] = useState(false); 
+  const [loggedIn, setLoggedIn] = useState(false); 
 //   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,10 +23,10 @@ function UserProvider({ children }) {
       });
   }, []);
 
-//   function login(user) {
-//     setUser(user);
-//     setLoggedIn(true); // set loggedIn flag
-//   }
+  function login(user) {
+    setUser(user);
+    setLoggedIn(true); // set loggedIn flag
+  }
 
 //   function logout() {
 //     navigate("/");
@@ -36,7 +36,7 @@ function UserProvider({ children }) {
 
   function signup(user) {
     setUser(user);
-    // setLoggedIn(true); // set loggedIn flag
+    setLoggedIn(true); // set loggedIn flag
   }
 
   return (
@@ -45,7 +45,7 @@ function UserProvider({ children }) {
       value={{
         user,
         setUser,
-        // login,
+        login,
         // logout,
         signup
         // loggedIn,
