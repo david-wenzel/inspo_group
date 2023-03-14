@@ -1,30 +1,27 @@
 import { UserProvider } from "./context/user";
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Signup from "./Signup";
 // import AddBoardForm from "./AddBoardForm"
-// import Boards from "./Boards"
 // import Home from "./Home"
-// import Login from "./Login"
-
-
 import './App.css';
 import Login from "./Login";
+import Boards from "./Boards";
 
 function App() {
 
-//   const [boards, setBoards] = useState([]);
+  const [boards, setBoards] = useState([]);
 //   const navigate = useNavigate();
   // const [errorsList, setErrorsList] = useState([]);
 
-//   useEffect(() => {
-//     fetch("/boards")
-//       .then((res) => res.json())
-//       .then((data) => {
-//         setBoards(data);
-//       });
-//   }, []);
+  useEffect(() => {
+    fetch("/boards")
+      .then((res) => res.json())
+      .then((data) => {
+        setBoards(data);
+      });
+  }, []);
 
 //   function addBoard(board) {
 //     fetch("/boards", {
@@ -55,6 +52,7 @@ function App() {
       <NavBar />
       <Router>
       <Routes>
+      <Route path="/boards" element={<Boards boards={boards} />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       </Routes>
