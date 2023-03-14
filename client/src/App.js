@@ -1,6 +1,6 @@
 import { UserProvider } from "./context/user";
 // import { useEffect, useState } from "react";
-// import { Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Signup from "./Signup";
 // import AddBoardForm from "./AddBoardForm"
@@ -53,8 +53,12 @@ function App() {
     <div className="App">
     <UserProvider>
       <NavBar />
-      <Signup />
-      <Login />
+      <Router>
+      <Routes>
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/login" element={<Login />} />
+      </Routes>
+      </Router>
       </UserProvider>
 
     </div>
