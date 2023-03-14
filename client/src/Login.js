@@ -1,12 +1,12 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "./context/user";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorsList, setErrorsList] = useState([]);
-//   const navigate = useNavigate();
+  const navigate = useNavigate();
   const { login } = useContext(UserContext);
 
   function handleSubmit(e) {
@@ -25,7 +25,7 @@ function Login() {
       .then((user) => {
         if (!user.errors) {
           login(user);
-        //   navigate("/");
+          navigate("/boards");
         } else {
           setUsername("");
           setPassword("");
