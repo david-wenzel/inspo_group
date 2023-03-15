@@ -12,8 +12,8 @@ import Boards from "./Boards";
 function App() {
 
   const [boards, setBoards] = useState([]);
-//   const navigate = useNavigate();
-  // const [errorsList, setErrorsList] = useState([]);
+  // const navigate = useNavigate();
+  const [errorsList, setErrorsList] = useState([]);
 
   useEffect(() => {
     fetch("/boards")
@@ -23,22 +23,23 @@ function App() {
       });
   }, []);
 
-//   function addBoard(board) {
-//     fetch("/boards", {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify(board),
-//     })
-//       .then((res) => res.json())
-//       .then((data) => {
-//         if (!data.errors) {
-//           setBoards([...boards, data]);
-//           navigate("/boards");
-//         } else {
-//           setErrorsList(errorsList);
-//         }
-//       });
-//   }
+  function addBoard(board) {
+    console.log(board)
+    fetch("/boards", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(board),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (!data.errors) {
+          setBoards([...boards, data]);
+          // navigate("/boards");
+        } else {
+          setErrorsList(errorsList);
+        }
+      });
+  }
 
 //   function deleteBoard(id) {
 //     const updatedBoards = boards.filter((board) => board.id !== id);
@@ -52,7 +53,8 @@ function App() {
       <NavBar />
       <Router>
       <Routes>
-      <Route path="/boards" element={<Boards boards={boards} />} />
+      <Route path="/boards" element={<Boards boards={boards} addBoard={addBoard} errorsList={errorsList}/>} />
+      <Route exact path="/boards/:id" />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       </Routes>

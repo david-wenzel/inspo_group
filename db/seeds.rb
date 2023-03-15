@@ -5,3 +5,49 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Board.create!([{
+    title: "bikes"
+},
+{
+    title: "rooms"
+},
+{
+    title: "logos"
+}])
+
+User.create!([{
+    username: "david",
+    password: "david"
+},
+{
+    username: "user",
+    password: "user"
+},
+{
+    username: "lexi",
+    password: "lexi"
+},
+{
+    username: "louie",
+    password: "louie"
+}])
+
+
+Post.create!([{
+    img_url: "bike",
+    post_body: "bike",
+    board_id:1,
+    user_id: 1
+},
+{
+    img_url: "bike",
+    post_body: "bike",
+    board_id:1,
+    user_id: 1
+},
+{
+    img_url: "bike",
+    post_body: "bike",
+    board_id:1,
+    user_id: 1
+}])
