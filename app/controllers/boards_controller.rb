@@ -5,7 +5,7 @@ class BoardsController < ApplicationController
 
     def index
         boards = Board.all.order("title")
-        render json: boards, include: :reviews, status: :ok
+        render json: boards, include: :posts, status: :ok
     end
 
     def create

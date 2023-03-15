@@ -36,18 +36,6 @@ User.create!([{
 Post.create!([{
     img_url: "bike",
     post_body: "bike",
-    board_id:1,
-    user_id: 1
-},
-{
-    img_url: "bike",
-    post_body: "bike",
-    board_id:1,
-    user_id: 1
-},
-{
-    img_url: "bike",
-    post_body: "bike",
-    board_id:1,
+    board_id: 1,
     user_id: 1
 }])

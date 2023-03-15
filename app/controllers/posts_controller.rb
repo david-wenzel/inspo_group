@@ -1,15 +1,23 @@
 class PostsController < ApplicationController
-    def create
-        if params[:board_id]
-            game = Board.find(params[:board_id])
-            review = @current_user.reviews.create!(review_params)
-            render json: review, include: :user, status: :created
+    rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+    
+    # def create
+    #     if params[:board_id]
+    #         board = Board.find(params[:board_id])
+    #         post = @current_user.posts.create!(post_params)
+    #         render json: post, include: :user, status: :created
 
-        else
-            posts = Post.all
-            render json: posts, status: :created
-        end
+    #     else
+    #         posts = Post.all
+    #         render json: posts, status: :created
+    #     end
         
+    # end
+
+    def create
+        # @current_user
+        post = Post.create!(post_params)
+        render json: post, status: :created
     end
 
     def update
@@ -23,4 +31,12 @@ class PostsController < ApplicationController
         post.destroy
         head :no_content
     end
+
+    private
+    
+    def post_params
+    params.permit(:img_url, :post_body, :board_id, :user_id)
+    end
+
+    
 end

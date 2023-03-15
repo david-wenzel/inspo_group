@@ -18,7 +18,6 @@ export default function BoardsForm({addBoard}) {
       };
 
       function handleSubmit(e) {
-        console.log(values)
         e.preventDefault();
         addBoard(
           values
