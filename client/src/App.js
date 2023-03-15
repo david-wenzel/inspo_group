@@ -8,6 +8,7 @@ import Signup from "./Signup";
 import './App.css';
 import Login from "./Login";
 import Boards from "./Boards";
+import Posts from "./Posts";
 
 function App() {
 
@@ -55,7 +56,7 @@ function App() {
       <Router>
       <Routes>
       <Route path="/boards" element={<Boards boards={boards} addBoard={addBoard} errorsList={errorsList}/>} />
-      <Route exact path="/boards/:id" />
+      <Route path="/boards/:id" element={<Posts boards={boards}/>}/>
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       </Routes>
