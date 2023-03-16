@@ -38,7 +38,6 @@ if (currentBoard && currentBoard.posts) {
             ...prevState,
             posts: [...prevState.posts, data],
           }));
-          // navigate("/boards");
         } else {
           setErrorsList(errorsList);
           console.log(errorsList)

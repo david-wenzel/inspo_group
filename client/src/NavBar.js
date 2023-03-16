@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "./context/user";
 // import { NavLink} from "react-router-dom";
 
 function Navbar() {
   const { user, logout, loggedIn } = useContext(UserContext);
-//   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   function logoutUser() {
     fetch("/logout", {
@@ -13,7 +13,7 @@ function Navbar() {
       headers: { "Content-Type": "application/json" },
     }).then(() => {
       logout();
-    //   navigate("/games");
+      navigate("/");
     });
   }
 
