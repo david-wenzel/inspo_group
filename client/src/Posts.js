@@ -17,18 +17,6 @@ export default function Posts({boards}) {
     setCurrentBoard(foundBoard);
   }, [boards, parsedId]);
 
-
-  // find section with same id as id from the browser bar
-//   const foundBoard = boards.find(({ id }) => id === parsedId);
-//     console.log(foundBoard)
-//     setCurrentBoard(foundBoard)
-  // each goal object which contains id, goal, section_id
-  // let goals = foundSection.goals.map((goal) => goal);
-//   let posts
-//   if(currentBoard) {
-//     posts = currentBoard.posts.map((post) => post);
-//  }
-
  let posts = [];
 if (currentBoard && currentBoard.posts) {
   posts = currentBoard.posts.map((post) => post);
@@ -53,6 +41,7 @@ if (currentBoard && currentBoard.posts) {
           // navigate("/boards");
         } else {
           setErrorsList(errorsList);
+          console.log(errorsList)
         }
       });
   }
