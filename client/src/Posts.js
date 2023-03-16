@@ -4,7 +4,7 @@ import PostCard from "./PostCard";
 import PostForm from "./PostForm"
 // import NavBar from "./NavBar";
 
-export default function Posts({boards, addPost}) {
+export default function Posts({boards}) {
   // useParams
   const [currentBoard, setCurrentBoard] = useState({ posts: [] });
   const params = useParams();
@@ -24,14 +24,42 @@ export default function Posts({boards, addPost}) {
 //     setCurrentBoard(foundBoard)
   // each goal object which contains id, goal, section_id
   // let goals = foundSection.goals.map((goal) => goal);
-  let posts
-  if(currentBoard) {
-    posts = currentBoard.posts.map((post) => post);
- }
+//   let posts
+//   if(currentBoard) {
+//     posts = currentBoard.posts.map((post) => post);
+//  }
+
+ let posts = [];
+if (currentBoard && currentBoard.posts) {
+  posts = currentBoard.posts.map((post) => post);
+}
+
+
 //  console.log(posts)
 
   // console.log(goals);
 
+  function addPost(post) {
+    console.log(post)
+    fetch("/posts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(post),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        if (!data.errors) {
+          setCurrentBoard((prevState) => ({
+            ...prevState,
+            posts: [...prevState.posts, data],
+          }));
+          // navigate("/boards");
+        } else {
+        //   setErrorsList(errorsList);
+        }
+      });
+  }
 
 
 

@@ -15,7 +15,7 @@ class PostsController < ApplicationController
     # end
 
     def create
-        # @current_user
+        @current_user
         post = Post.create!(post_params)
         render json: post, status: :created
     end
