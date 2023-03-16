@@ -52,8 +52,8 @@ function App() {
   return (
     <div className="App">
     <UserProvider>
-      <NavBar />
       <Router>
+      <NavBar />
       <Routes>
       <Route path="/boards" element={<Boards boards={boards} addBoard={addBoard} errorsList={errorsList}/>} />
       <Route path="/boards/:id" element={<Posts boards={boards}/>}/>

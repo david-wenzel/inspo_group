@@ -39,7 +39,7 @@ export default function Posts({boards}) {
 
 // breaks on refresh because we lose state - may need to add if statment to do a network call to fetch data 
  let renderPosts 
- if(posts) { posts.map((post) => (
+ if(posts) { renderPosts = posts.map((post) => (
     <PostCard
       key={post.id}
       post={post}
@@ -56,10 +56,9 @@ export default function Posts({boards}) {
 
   return( 
   <div>
-    {/* <NavBar /> */}
    <h1 className="title">{foundBoard.title}</h1> 
     {/* <br/> */}
-    {/* <GoalForm id={parsedId} handleAddGoal={handleAddGoal} /> */}
+    {/* <PostForm id={parsedId} handleAddPost={handleAddPost} /> */}
     {renderPosts}
   </div>
   )

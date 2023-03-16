@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { NavLink } from "react-router-dom";
 import { UserContext } from "./context/user";
 // import { NavLink} from "react-router-dom";
 
@@ -31,7 +32,7 @@ function Navbar() {
   } else {
     return (
       <div>
-        <h1>Inspo.Group</h1>
+       <NavLink to={'/'} ><h1>Inspo.Group</h1></NavLink>
         {/* <NavLink to="/login"> */}
           {/* <button>Login</button> */}
         {/* </NavLink> */}
