@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import PostCard from "./PostCard";
 // import NavBar from "./NavBar";
 
 export default function Posts({boards}) {
@@ -18,7 +19,7 @@ export default function Posts({boards}) {
   if(foundBoard) {
     posts = foundBoard.posts.map((post) => post);
  }
- console.log(posts)
+//  console.log(posts)
 
   // console.log(goals);
 
@@ -36,19 +37,19 @@ export default function Posts({boards}) {
 
 
 
-
 // breaks on refresh because we lose state - may need to add if statment to do a network call to fetch data 
-//  let renderPosts = posts.map((post) => (
-//     <PostCard
-//       key={id}
-//       post={post}
+ let renderPosts 
+ if(posts) { posts.map((post) => (
+    <PostCard
+      key={post.id}
+      post={post}
     //   handleDeleteClick={handleDeleteClick}
     //   handleEditGoal={handleEditGoal}
-    // />
-//   ));
+    />
+  ));}
 
   
-
+// set up if else statment on refresh if we lose state to refresh boards or take back to home
 
 
 
@@ -57,9 +58,9 @@ export default function Posts({boards}) {
   <div>
     {/* <NavBar /> */}
    <h1 className="title">{foundBoard.title}</h1> 
-    {/* <br/>
-    <GoalForm id={parsedId} handleAddGoal={handleAddGoal} />
-    {renderGoals} */}
+    {/* <br/> */}
+    {/* <GoalForm id={parsedId} handleAddGoal={handleAddGoal} /> */}
+    {renderPosts}
   </div>
   )
 }
