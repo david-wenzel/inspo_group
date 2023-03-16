@@ -40,24 +40,6 @@ function App() {
         }
       });
   }
-  // function addPost(post) {
-  //   console.log(post)
-  //   fetch("/posts", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify(post),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data)
-  //       if (!data.errors) {
-  //         setBoards([...boards, data]);
-  //         // navigate("/boards");
-  //       } else {
-  //         setErrorsList(errorsList);
-  //       }
-  //     });
-  // }
 
 //   function deleteBoard(id) {
 //     const updatedBoards = boards.filter((board) => board.id !== id);
@@ -77,8 +59,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       </Routes>
       </Router>
-      </UserProvider>
-
+    </UserProvider>
     </div>
   );
   }
