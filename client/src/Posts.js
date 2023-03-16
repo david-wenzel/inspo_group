@@ -1,9 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import PostCard from "./PostCard";
+import PostForm from "./PostForm"
 // import NavBar from "./NavBar";
 
-export default function Posts({boards}) {
+export default function Posts({boards, addPost}) {
   // useParams
   const params = useParams();
 //   const params = useParams();
@@ -58,7 +59,9 @@ export default function Posts({boards}) {
   <div>
    <h1 className="title">{foundBoard.title}</h1> 
     {/* <br/> */}
-    {/* <PostForm id={parsedId} handleAddPost={handleAddPost} /> */}
+    <PostForm id={parsedId} addPost={addPost}
+    // handleAddPost={handleAddPost} 
+    />
     {renderPosts}
   </div>
   )
