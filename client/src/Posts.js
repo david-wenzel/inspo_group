@@ -1,4 +1,4 @@
-import React from "react";
+import {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import PostCard from "./PostCard";
 import PostForm from "./PostForm"
@@ -6,19 +6,27 @@ import PostForm from "./PostForm"
 
 export default function Posts({boards, addPost}) {
   // useParams
+  const [currentBoard, setCurrentBoard] = useState({ posts: [] });
   const params = useParams();
 //   const params = useParams();
   // browswer bar returns a number that is a string so we to to parseInt to get it back to a integer to compare to our sections object
   const parsedId = parseInt(params.id)
 
+  useEffect(() => {
+    const foundBoard = boards.find(({ id }) => id === parsedId);
+    setCurrentBoard(foundBoard);
+  }, [boards, parsedId]);
+
+
   // find section with same id as id from the browser bar
-  const foundBoard = boards.find(({ id }) => id === parsedId);
-    console.log(foundBoard)
+//   const foundBoard = boards.find(({ id }) => id === parsedId);
+//     console.log(foundBoard)
+//     setCurrentBoard(foundBoard)
   // each goal object which contains id, goal, section_id
   // let goals = foundSection.goals.map((goal) => goal);
   let posts
-  if(foundBoard) {
-    posts = foundBoard.posts.map((post) => post);
+  if(currentBoard) {
+    posts = currentBoard.posts.map((post) => post);
  }
 //  console.log(posts)
 
@@ -57,7 +65,7 @@ export default function Posts({boards, addPost}) {
 
   return( 
   <div>
-   <h1 className="title">{foundBoard.title}</h1> 
+   {/* <h1 className="title">{currentBoard.board.title}</h1>  */}
     {/* <br/> */}
     <PostForm id={parsedId} addPost={addPost}
     // handleAddPost={handleAddPost} 

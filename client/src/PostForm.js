@@ -35,7 +35,7 @@ const { user } = useContext(UserContext);
   function handleSubmit(e) {
     e.preventDefault();
         addPost(
-          {values}
+          values
         );
   }
 

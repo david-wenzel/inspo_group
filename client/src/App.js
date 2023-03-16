@@ -41,15 +41,16 @@ function App() {
         }
       });
   }
-  function addPost({post}) {
-    console.log({post})
+  function addPost(post) {
+    console.log(post)
     fetch("/posts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({post}),
+      body: JSON.stringify(post),
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data)
         if (!data.errors) {
           setBoards([...boards, data]);
           // navigate("/boards");
