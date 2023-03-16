@@ -21,7 +21,6 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         setBoards(data);
-        console.log(data)
       });
   }, []);
 

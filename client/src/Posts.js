@@ -2,16 +2,16 @@ import {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import PostCard from "./PostCard";
 import PostForm from "./PostForm"
-// import NavBar from "./NavBar";
 
 export default function Posts({boards}) {
-  // useParams
   const [currentBoard, setCurrentBoard] = useState({ posts: [] });
+  const [errorsList, setErrorsList] = useState([]);
+
   const params = useParams();
-//   const params = useParams();
   // browswer bar returns a number that is a string so we to to parseInt to get it back to a integer to compare to our sections object
   const parsedId = parseInt(params.id)
 
+  
   useEffect(() => {
     const foundBoard = boards.find(({ id }) => id === parsedId);
     setCurrentBoard(foundBoard);
@@ -35,12 +35,9 @@ if (currentBoard && currentBoard.posts) {
 }
 
 
-//  console.log(posts)
 
-  // console.log(goals);
 
   function addPost(post) {
-    console.log(post)
     fetch("/posts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -48,7 +45,6 @@ if (currentBoard && currentBoard.posts) {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
         if (!data.errors) {
           setCurrentBoard((prevState) => ({
             ...prevState,
@@ -56,7 +52,7 @@ if (currentBoard && currentBoard.posts) {
           }));
           // navigate("/boards");
         } else {
-        //   setErrorsList(errorsList);
+          setErrorsList(errorsList);
         }
       });
   }
@@ -93,7 +89,7 @@ if (currentBoard && currentBoard.posts) {
 
   return( 
   <div>
-   {/* <h1 className="title">{currentBoard.board.title}</h1>  */}
+   {/* <h1 className="title">{foundBoard.board.title}</h1>  */}
     {/* <br/> */}
     <PostForm id={parsedId} addPost={addPost}
     // handleAddPost={handleAddPost} 

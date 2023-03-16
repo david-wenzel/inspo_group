@@ -16,7 +16,6 @@ const { user } = useContext(UserContext);
     user_id: user.id
   }
 
-  console.log(initialValues)
 
 
   const[values, setValues] = useState(initialValues)
