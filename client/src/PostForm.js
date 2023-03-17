@@ -35,7 +35,8 @@ const { user } = useContext(UserContext);
     e.preventDefault();
         addPost(
           values
-        );
+        )
+        setValues(initialValues);
   }
 
   

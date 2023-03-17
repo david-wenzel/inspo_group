@@ -41,6 +41,38 @@ function App() {
       });
   }
 
+  function addPost(post) {
+    fetch("/posts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(post),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (!data.errors) {
+          // Find the board in the boards state that matches the board of the new post
+          const updatedBoards = boards.map((board) => {
+            if (board.id === data.board.id) {
+              // Add the new post to the posts of the matching board
+              return {
+                ...board,
+                posts: [...board.posts, data],
+              };
+            } else {
+              return board;
+            }
+          });
+  
+          setBoards(updatedBoards);
+        } else {
+          setErrorsList(errorsList);
+          console.log(errorsList);
+        }
+      });
+  }
+
+
+
 //   function deleteBoard(id) {
 //     const updatedBoards = boards.filter((board) => board.id !== id);
 //     setBoards(updatedBoards);
@@ -54,7 +86,7 @@ function App() {
       <NavBar />
       <Routes>
       <Route path="/boards" element={<Boards  boards={boards} addBoard={addBoard} errorsList={errorsList}/>} />
-      <Route path="/boards/:id" element={<Posts boards={boards}/>}/>
+      <Route path="/boards/:id" element={<Posts addPost={addPost} boards={boards}/>}/>
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       </Routes>
