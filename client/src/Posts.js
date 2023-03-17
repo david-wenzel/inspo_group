@@ -33,7 +33,6 @@ export default function Posts({ boards, addPost }) {
   //       .then((deletedGoal) => handleDeleteGoal(deletedGoal));
   //   }
 
-  // breaks on refresh because we lose state - may need to add if statment to do a network call to fetch data
   let renderPosts;
   if (posts) {
     renderPosts = posts.map((post) => (
@@ -48,10 +47,10 @@ export default function Posts({ boards, addPost }) {
 
   // set up if else statment on refresh if we lose state to refresh boards or take back to home
 
-  if (loggedIn) {
+  if (loggedIn && currentBoard && currentBoard.title) {
     return (
       <div>
-        {/* <h1 className="title">{foundBoard.board.title}</h1>  */}
+        <h1 className="title">{currentBoard.title}</h1> 
         {/* <br/> */}
         <PostForm
           id={parsedId}
