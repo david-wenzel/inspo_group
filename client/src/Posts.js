@@ -6,7 +6,7 @@ import PostForm from "./PostForm";
 
 export default function Posts({ boards, addPost }) {
   const [currentBoard, setCurrentBoard] = useState({ posts: [] });
-  const [errorsList, setErrorsList] = useState([]);
+//   const [errorsList, setErrorsList] = useState([]);
   const { loggedIn } = useContext(UserContext);
 
   const params = useParams();
@@ -23,26 +23,6 @@ export default function Posts({ boards, addPost }) {
     posts = currentBoard.posts.map((post) => post);
   }
 
-//   function addPost(post) {
-//     fetch("/posts", {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify(post),
-//     })
-//       .then((res) => res.json())
-//       .then((data) => {
-//         if (!data.errors) {
-//             console.log(data.board.id)
-//           setCurrentBoard((prevState) => ({
-//             ...prevState,
-//             posts: [...prevState.posts, data],
-//           }));
-//         } else {
-//           setErrorsList(errorsList);
-//           console.log(errorsList);
-//         }
-//       });
-//   }
 
   //   function handleDeleteClick(e, goal) {
   //     fetch(`http://localhost:9292/goals/${goal.id}`, {

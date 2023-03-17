@@ -66,10 +66,10 @@ function App() {
           setBoards(updatedBoards);
         } else {
           setErrorsList(errorsList);
-          console.log(errorsList);
         }
       });
   }
+
 
 
 
