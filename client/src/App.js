@@ -95,6 +95,22 @@ function App() {
         }
       });
     }
+
+ 
+    function handleEditPost(editedPost){
+      const updatedBoards = boards.map((board) => {
+        if (board.id === parseInt(editedPost.board_id)) {
+          return {
+            ...board,
+            posts: board.posts.filter((p) => p.id !== editedPost.id)
+          };
+        } else {
+          return board;
+        }
+      });
+      setBoards(updatedBoards);
+    }
+    
   
 
   
@@ -106,7 +122,7 @@ function App() {
       <NavBar />
       <Routes>
       <Route path="/boards" element={<Boards  boards={boards} addBoard={addBoard} errorsList={errorsList}/>} />
-      <Route path="/boards/:id" element={<Posts deletePost={deletePost} addPost={addPost} boards={boards}/>}/>
+      <Route path="/boards/:id"  element={<Posts deletePost={deletePost} handleEditPost={handleEditPost} addPost={addPost} boards={boards}/>}/>
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       </Routes>

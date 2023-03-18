@@ -3,7 +3,7 @@ import { useState, useContext } from 'react'
 import { UserContext } from "./context/user";
 
 
-export default function PostEditForm({post, onEditClick, handleEditGoal}) {
+export default function PostEditForm({post, handleEditPost, onEditClick, handleEditGoal}) {
 
     
     // const postId = post.id
@@ -14,7 +14,7 @@ export default function PostEditForm({post, onEditClick, handleEditGoal}) {
     const initialValues ={
         img_url: post.img_url,
         post_body: post.post_body,
-        board_id: post.id,
+        board_id: post.board_id,
         user_id: user.id
       }
     const [values, setValues] = useState(initialValues);
@@ -29,22 +29,23 @@ export default function PostEditForm({post, onEditClick, handleEditGoal}) {
     }
     
 
-function handleSubmit(e) {
-    e.preventDefault();
-    fetch(`/posts/${post.id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
-      })
-        .then((r) => r.json())
-        .then((editedGoal) => handleEditGoal(editedGoal));
-  
-      // set isEdit state to !isEdit so the form is no longer displayed
-      onEditClick();
-}
-
+    function handleSubmit(e) {
+        e.preventDefault();
+        fetch(`/posts/${post.id}`, {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(values),
+          })
+            .then((r) => r.json())
+            .then((data) => console.log(data));
+            
+            
+      
+          // set isEdit state to !isEdit so the form is no longer displayed
+        //   onEditClick();
+    }
 
 
 

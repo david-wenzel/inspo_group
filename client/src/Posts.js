@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import PostCard from "./PostCard";
 import PostForm from "./PostForm";
 
-export default function Posts({ boards, addPost, deletePost }) {
+export default function Posts({ boards, addPost, deletePost, handleEditPost }) {
   const [currentBoard, setCurrentBoard] = useState({ posts: [] });
 //   const [errorsList, setErrorsList] = useState([]);
   const { loggedIn } = useContext(UserContext);
@@ -29,6 +29,7 @@ export default function Posts({ boards, addPost, deletePost }) {
       <PostCard
         key={post.id}
         post={post}
+        handleEditPost={handleEditPost}
         deletePost={deletePost}
       />
     ));

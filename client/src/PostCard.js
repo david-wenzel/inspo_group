@@ -2,7 +2,7 @@ import React from 'react'
 // import { useState } from 'react';
 import PostEditForm from './PostEditForm';
 
-export default function PostCard({post, handleEditGoal, deletePost}) {
+export default function PostCard({post, handleEditPost, deletePost}) {
     // const [isEdit, setIsEdit] = useState(false);
 
 
@@ -26,7 +26,7 @@ export default function PostCard({post, handleEditGoal, deletePost}) {
           onClick={(e) => handleDeleteClick(e, post)}
           >X</button> 
           <br/>
-          <PostEditForm post={post} />
+          <PostEditForm post={post} handleEditPost={handleEditPost} />
           {/* <button id='editBtn' onClick={(e) => handleEditClick(e, goal)}>Edit</button>  */}
         </div>
       );
