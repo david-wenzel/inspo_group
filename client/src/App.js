@@ -97,12 +97,34 @@ function App() {
     }
 
  
-    function handleEditPost(editedPost){
+    // function handleEditPost(editedPost){
+    //   const updatedBoards = boards.map((board) => {
+    //     if (board.id === parseInt(editedPost.board_id)) {
+    //       return {
+    //         ...board,
+    //         posts: board.posts.filter((p) => p.id !== editedPost.id)
+    //       };
+    //     } else {
+    //       return board;
+    //     }
+    //   });
+    //   setBoards(updatedBoards);
+    // }
+    
+  
+    function handleEditPost(editedPost) {
       const updatedBoards = boards.map((board) => {
         if (board.id === parseInt(editedPost.board_id)) {
+          const updatedPosts = board.posts.map((p) => {
+            if (p.id === editedPost.id) {
+              return editedPost;
+            } else {
+              return p;
+            }
+          });
           return {
             ...board,
-            posts: board.posts.filter((p) => p.id !== editedPost.id)
+            posts: updatedPosts
           };
         } else {
           return board;
@@ -110,9 +132,6 @@ function App() {
       });
       setBoards(updatedBoards);
     }
-    
-  
-
   
 
   return (

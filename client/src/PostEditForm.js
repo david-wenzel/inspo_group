@@ -3,7 +3,7 @@ import { useState, useContext } from 'react'
 import { UserContext } from "./context/user";
 
 
-export default function PostEditForm({post, handleEditPost, onEditClick, handleEditGoal}) {
+export default function PostEditForm({post, handleEditPost, onEditClick}) {
 
     
     // const postId = post.id
@@ -39,7 +39,7 @@ export default function PostEditForm({post, handleEditPost, onEditClick, handleE
             body: JSON.stringify(values),
           })
             .then((r) => r.json())
-            .then((data) => console.log(data));
+            .then((data) => handleEditPost(data));
             
             
       
