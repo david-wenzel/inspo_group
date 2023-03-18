@@ -10,7 +10,6 @@ export default function Posts({ boards, addPost, deletePost }) {
   const { loggedIn } = useContext(UserContext);
 
   const params = useParams();
-  // browswer bar returns a number that is a string so we to to parseInt to get it back to a integer to compare to our sections object
   const parsedId = parseInt(params.id);
 
   useEffect(() => {
