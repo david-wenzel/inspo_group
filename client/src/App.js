@@ -74,18 +74,6 @@ function App() {
   }
 
 
-  // function deletePost(post) {
-  //   if (user.id === post.user_id) {
-  //     fetch(`/posts/${post.id}`, {
-  //       method: "DELETE",
-  //     }).then((res) => {
-  //       if (res.ok) {
-  //         console.log(res)
-
-  //         // setBoards();
-  //       }
-  //     });
-  //   }
 
   function deletePost(post) {
       fetch(`/posts/${post.id}`, {
@@ -110,11 +98,6 @@ function App() {
   
 
   
-//   function deleteBoard(id) {
-//     const updatedBoards = boards.filter((board) => board.id !== id);
-//     setBoards(updatedBoards);
-  // }
-
 
   return (
     <div className="App">
