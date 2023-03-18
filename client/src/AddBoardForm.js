@@ -22,7 +22,6 @@ export default function BoardsForm({addBoard}) {
         addBoard(
           values
         );
-        // navigate("/");
       }
 
 

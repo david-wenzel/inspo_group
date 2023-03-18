@@ -1,4 +1,4 @@
-import { UserProvider } from "./context/user";
+import { UserProvider} from "./context/user";
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./NavBar";
@@ -16,6 +16,7 @@ function App() {
   // const navigate = useNavigate();
   const [errorsList, setErrorsList] = useState([]);
 
+
   useEffect(() => {
     fetch("/boards")
       .then((res) => res.json())
@@ -23,6 +24,9 @@ function App() {
         setBoards(data);
       });
   }, []);
+
+  console.log(boards.map(board => board.id))
+
 
   function addBoard(board) {
     fetch("/boards", {
@@ -71,8 +75,45 @@ function App() {
   }
 
 
+  // function deletePost(post) {
+  //   if (user.id === post.user_id) {
+  //     fetch(`/posts/${post.id}`, {
+  //       method: "DELETE",
+  //     }).then((res) => {
+  //       if (res.ok) {
+  //         console.log(res)
 
+  //         // setBoards();
+  //       }
+  //     });
+  //   }
 
+  function deletePost(post) {
+      fetch(`/posts/${post.id}`, {
+        method: "DELETE",
+      }).then((res) => {
+        if (res.ok) {
+          console.log(res)
+  
+          // Remove the deleted post from the posts array of the matching board
+          const updatedBoards = boards.map((board) => {
+            if (board.id === post.board_id) {
+              return {
+                ...board,
+                posts: board.posts.filter((p) => p.id !== post.id),
+              };
+            } else {
+              return board;
+            }
+          });
+  
+          setBoards(updatedBoards);
+        }
+      });
+    }
+  
+
+  
 //   function deleteBoard(id) {
 //     const updatedBoards = boards.filter((board) => board.id !== id);
 //     setBoards(updatedBoards);
@@ -86,7 +127,7 @@ function App() {
       <NavBar />
       <Routes>
       <Route path="/boards" element={<Boards  boards={boards} addBoard={addBoard} errorsList={errorsList}/>} />
-      <Route path="/boards/:id" element={<Posts addPost={addPost} boards={boards}/>}/>
+      <Route path="/boards/:id" element={<Posts deletePost={deletePost} addPost={addPost} boards={boards}/>}/>
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       </Routes>

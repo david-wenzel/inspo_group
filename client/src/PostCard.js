@@ -2,7 +2,7 @@ import React from 'react'
 // import { useState } from 'react';
 // import GoalEditForm from './GoalEditForm';
 
-export default function PostCard({post, handleEditGoal, handleDeleteClick}) {
+export default function PostCard({post, handleEditGoal, deletePost}) {
     // const [isEdit, setIsEdit] = useState(false);
 
 
@@ -10,15 +10,23 @@ export default function PostCard({post, handleEditGoal, handleDeleteClick}) {
     //     setIsEdit(!isEdit);
     //   }
 
+    function handleDeleteClick(e, post) {
+        e.preventDefault()
+        // console.log(post)
+            deletePost(post)
+        }
+
 
 
     const renderPost = (
         <div key={post.id}>
           <h3>{post.img_url}</h3> 
           <p>{post.post_body}</p>
-          {/* <button id='deleteBtn' onClick={(e) => handleDeleteClick(e, goal)}>X</button> 
+          <button id='deleteBtn'
+          onClick={(e) => handleDeleteClick(e, post)}
+          >X</button> 
           <br/>
-          <button id='editBtn' onClick={(e) => handleEditClick(e, goal)}>Edit</button>  */}
+          {/* <button id='editBtn' onClick={(e) => handleEditClick(e, goal)}>Edit</button>  */}
         </div>
       );
 

@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import PostCard from "./PostCard";
 import PostForm from "./PostForm";
 
-export default function Posts({ boards, addPost }) {
+export default function Posts({ boards, addPost, deletePost }) {
   const [currentBoard, setCurrentBoard] = useState({ posts: [] });
 //   const [errorsList, setErrorsList] = useState([]);
   const { loggedIn } = useContext(UserContext);
@@ -22,7 +22,18 @@ export default function Posts({ boards, addPost }) {
   if (currentBoard && currentBoard.posts) {
     posts = currentBoard.posts.map((post) => post);
   }
-
+  
+//   function handleDeletePostClick() {
+//     if (user.id === post.user_id) {
+//       fetch(`/posts/${review.id}`, {
+//         method: "DELETE",
+//       }).then((res) => {
+//         if (res.ok) {
+//           deletePost(post.id);
+//         }
+//       });
+//     }
+//   }
 
   //   function handleDeleteClick(e, goal) {
   //     fetch(`http://localhost:9292/goals/${goal.id}`, {
@@ -39,6 +50,7 @@ export default function Posts({ boards, addPost }) {
       <PostCard
         key={post.id}
         post={post}
+        deletePost={deletePost}
         //   handleDeleteClick={handleDeleteClick}
         //   handleEditGoal={handleEditGoal}
       />
