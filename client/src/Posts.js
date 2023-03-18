@@ -23,26 +23,6 @@ export default function Posts({ boards, addPost, deletePost }) {
     posts = currentBoard.posts.map((post) => post);
   }
   
-//   function handleDeletePostClick() {
-//     if (user.id === post.user_id) {
-//       fetch(`/posts/${review.id}`, {
-//         method: "DELETE",
-//       }).then((res) => {
-//         if (res.ok) {
-//           deletePost(post.id);
-//         }
-//       });
-//     }
-//   }
-
-  //   function handleDeleteClick(e, goal) {
-  //     fetch(`http://localhost:9292/goals/${goal.id}`, {
-  //       method: "DELETE",
-  //     })
-  //       .then((r) => r.json())
-  //       // .then((data) => console.log(data));
-  //       .then((deletedGoal) => handleDeleteGoal(deletedGoal));
-  //   }
 
   let renderPosts;
   if (posts) {
@@ -51,23 +31,18 @@ export default function Posts({ boards, addPost, deletePost }) {
         key={post.id}
         post={post}
         deletePost={deletePost}
-        //   handleDeleteClick={handleDeleteClick}
-        //   handleEditGoal={handleEditGoal}
       />
     ));
   }
 
-  // set up if else statment on refresh if we lose state to refresh boards or take back to home
 
   if (loggedIn && currentBoard && currentBoard.title) {
     return (
       <div>
         <h1 className="title">{currentBoard.title}</h1> 
-        {/* <br/> */}
         <PostForm
           id={parsedId}
           addPost={addPost}
-          // handleAddPost={handleAddPost}
         />
         {renderPosts}
       </div>
