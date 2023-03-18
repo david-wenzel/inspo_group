@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_12_022146) do
+ActiveRecord::Schema.define(version: 2023_03_18_210527) do
 
   create_table "boards", force: :cascade do |t|
     t.string "title"
@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 2023_03_12_022146) do
   create_table "posts", force: :cascade do |t|
     t.string "img_url"
     t.string "post_body"
-    t.string "board_id"
-    t.string "user_id"
+    t.integer "board_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

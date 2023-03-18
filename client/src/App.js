@@ -25,7 +25,6 @@ function App() {
       });
   }, []);
 
-  console.log(boards.map(board => board.id))
 
 
   function addBoard(board) {
@@ -93,20 +92,17 @@ function App() {
         method: "DELETE",
       }).then((res) => {
         if (res.ok) {
-          console.log(res)
-  
           // Remove the deleted post from the posts array of the matching board
           const updatedBoards = boards.map((board) => {
-            if (board.id === post.board_id) {
+            if (board.id === parseInt(post.board_id)) {
               return {
                 ...board,
-                posts: board.posts.filter((p) => p.id !== post.id),
+                posts: board.posts.filter((p) => p.id !== post.id)
               };
             } else {
               return board;
             }
           });
-  
           setBoards(updatedBoards);
         }
       });
