@@ -15,6 +15,9 @@ html, body {
   font-style: italic;
   width: 100%;
 }
+img {
+  max-width: 500px;
+}
 
 .spin {
   height: 200px;
@@ -89,9 +92,9 @@ input:focus, textarea:focus, select:focus {
 }
 
 .navbar {
-  display: flex;
+  /* display: flex; */
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   padding: 0.5rem 1rem;
   padding-top: 30px;
   width: 100%;

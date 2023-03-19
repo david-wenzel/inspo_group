@@ -46,7 +46,7 @@ export default function BoardsForm({addBoard, errorsList}) {
           
           <input id='formBtn' type="submit" value="+" />
         </form>
-        {errorsList.map((err) => (
+        {errorsList && errorsList.map((err) => (
         <li style={{ color: "red" }} key={err}>
           {err}
         </li>
