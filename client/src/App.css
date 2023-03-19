@@ -6,3 +6,20 @@
     list-style-type: none;
 
 }
+
+.spin {
+  /* width: 200px; Set the width of the image */
+  height: 200px; /* Set the height of the image */
+  animation-name: spin; /* Set the name of the animation */
+  animation-duration: 60s; /* Set the duration of the animation */
+  animation-iteration-count: infinite; /* Set the iteration count of the animation to infinite */
+  animation-timing-function: linear; /* Set the timing function of the animation */
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg); /* Set the initial rotation of the image to 0 degrees */
+  }
+  to {
+    transform: rotate(360deg); /* Set the final rotation of the image to 360 degrees */
+  }
+}
