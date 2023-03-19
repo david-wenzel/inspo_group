@@ -22,6 +22,7 @@ img {
 .spin {
   height: 200px;
   animation: spin 60s linear infinite;
+  margin: auto;
 }
 
 @keyframes spin {
@@ -100,8 +101,12 @@ input:focus, textarea:focus, select:focus {
   width: 100%;
 }
 
-.navbar h1, .navbar h3 {
-  margin: 0;
+.navbar h1{
+  margin: auto;
+} 
+
+.navbar h3 {
+  margin: 15px;
 }
 
 li {
@@ -112,4 +117,12 @@ li {
   max-width: 600px;
   font-size: 20px;
   font-style: normal;
+}
+
+.postBody {
+  max-width: 500px;
+}
+
+.post {
+  margin: 35px;
 }

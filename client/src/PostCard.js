@@ -26,7 +26,7 @@ export default function PostCard({post, handleEditPost, deletePost}) {
     const renderPost = (
         <div key={post.id}>
       <img src={post.img_url} alt="" />
-          <p>{post.post_body}</p>
+          <p className="postBody">{post.post_body}</p>
           {/* <button id='deleteBtn'
           onClick={(e) => handleDeleteClick(e, post)}
           >X</button>  */}
@@ -40,7 +40,7 @@ export default function PostCard({post, handleEditPost, deletePost}) {
       const renderEditPost = (
         <div key={post.id}>
       <img src={post.img_url} alt="" />
-          <p>{post.post_body}</p>
+          <p className="postBody">{post.post_body}</p>
           <button id='deleteBtn'
           onClick={(e) => handleDeleteClick(e, post)}
           >X</button> 
@@ -53,14 +53,14 @@ export default function PostCard({post, handleEditPost, deletePost}) {
     const renderNotUserPost = (
         <div key={post.id}>
       <img src={post.img_url} alt="" />
-        <p>{post.post_body}</p>
+        <p className="postBody" >{post.post_body}</p>
         </div>
     )
 
 
 
     return (
-        <div>
+        <div className="post" >
           {post.user_id !== user.id ? renderNotUserPost :
             (isEdit ?
               <>{renderEditPost}</> :
