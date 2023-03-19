@@ -63,13 +63,14 @@ function App() {
                 posts: [...board.posts, data],
               };
             } else {
+              setErrorsList(data.errors)
               return board;
             }
           });
   
           setBoards(updatedBoards);
         } else {
-          setErrorsList(errorsList);
+          setErrorsList(data.errors);
         }
       });
   }
@@ -141,8 +142,8 @@ function App() {
       <Router>
       <NavBar />
       <Routes>
-      <Route path="/boards" element={<Boards  boards={boards} addBoard={addBoard} errorsList={errorsList}/>} />
-      <Route path="/boards/:id"  element={<Posts deletePost={deletePost} handleEditPost={handleEditPost} addPost={addPost} boards={boards}/>}/>
+      <Route path="/boards" element={<Boards errorsList={errorsList} boards={boards} addBoard={addBoard} />} />
+      <Route path="/boards/:id"  element={<Posts errorsList={errorsList} deletePost={deletePost} handleEditPost={handleEditPost} addPost={addPost} boards={boards}/>}/>
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       </Routes>

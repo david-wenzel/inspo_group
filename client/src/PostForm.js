@@ -4,7 +4,7 @@ import { UserContext } from "./context/user";
 
 
 
-export default function GoalForm({id, addPost}) {
+export default function GoalForm({id, addPost, errorsList}) {
 
 const { user } = useContext(UserContext);
 
@@ -72,6 +72,11 @@ const { user } = useContext(UserContext);
             </label>
             <input type="submit" value="+" />
         </form>
+        {errorsList.map((err) => (
+        <li style={{ color: "red" }} key={err}>
+          {err}
+        </li>
+      ))}    
     </div>
   )
 }

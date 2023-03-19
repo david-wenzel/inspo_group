@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function BoardsForm({addBoard}) {
+export default function BoardsForm({addBoard, errorsList}) {
 
     const initialValues = {
         title: "",
@@ -44,6 +44,11 @@ export default function BoardsForm({addBoard}) {
           
           <input id='formBtn' type="submit" value="+" />
         </form>
+        {errorsList.map((err) => (
+        <li style={{ color: "red" }} key={err}>
+          {err}
+        </li>
+      ))}    
     </div>
   )
 }

@@ -5,7 +5,7 @@ import AddBoardForm from "./AddBoardForm";
 
 // import BoardCard from "./BoardCard";
 
-function Boards({ boards, setBoards, deleteBoard, addBoard }) {
+function Boards({ boards, errorsList, deleteBoard, addBoard }) {
   const { loggedIn } = useContext(UserContext);
 
   const renderBoards = boards.map((board) => (
@@ -19,7 +19,7 @@ function Boards({ boards, setBoards, deleteBoard, addBoard }) {
   if (loggedIn) {
     return (
       <div>
-        <AddBoardForm addBoard={addBoard} />
+        <AddBoardForm errorsList={errorsList} addBoard={addBoard} />
         <br />
         <h1>boards</h1>
         {renderBoards}
