@@ -72,3 +72,26 @@ input[type="checkbox"], input[type="radio"] {
 input:focus, textarea:focus, select:focus {
   border-color: #333;
 }
+
+.title {
+  font-size: 80px;
+  font-style: normal;
+  text-decoration: underline;
+}
+
+#section {
+  color: black;
+  text-decoration: none;
+margin-left: auto;
+margin-right: auto;
+padding: 15px;
+font-size: 40px;
+}
+
+#section:hover{
+  color: #7e6e6e;
+  font-size: 45px;
+}
+#section:active{
+  color: #e4d9d9;
+}

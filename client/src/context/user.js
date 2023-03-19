@@ -7,8 +7,8 @@ const UserContext = React.createContext();
 //create provider component
 function UserProvider({ children }) {
   const [user, setUser] = useState({});
-  const [loggedIn, setLoggedIn] = useState(false); 
-//   const navigate = useNavigate();
+  const [loggedIn, setLoggedIn] = useState(false);
+  //   const navigate = useNavigate();
   useEffect(() => {
     fetch("/me")
       .then((res) => res.json())
@@ -47,7 +47,7 @@ function UserProvider({ children }) {
         login,
         logout,
         signup,
-        loggedIn
+        loggedIn,
       }}
     >
       {children}

@@ -22,7 +22,7 @@ function Boards({ boards, errorsList, deleteBoard, addBoard }) {
       <div>
         <AddBoardForm errorsList={errorsList} addBoard={addBoard} />
         <br />
-        <h1>boards</h1>
+        <h1 className="title">inspo.Boards</h1>
         {renderBoards}
       </div>
     );

@@ -1,21 +1,19 @@
-import { UserProvider} from "./context/user";
+import { UserProvider } from "./context/user";
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Signup from "./Signup";
 // import AddBoardForm from "./AddBoardForm"
 // import Home from "./Home"
-import './App.css';
+import "./App.css";
 import Login from "./Login";
 import Boards from "./Boards";
 import Posts from "./Posts";
 
 function App() {
-
   const [boards, setBoards] = useState([]);
   // const navigate = useNavigate();
   const [errorsList, setErrorsList] = useState([]);
-
 
   useEffect(() => {
     fetch("/boards")
@@ -24,8 +22,6 @@ function App() {
         setBoards(data);
       });
   }, []);
-
-
 
   function addBoard(board) {
     fetch("/boards", {
@@ -40,7 +36,7 @@ function App() {
           // navigate("/boards");
         } else {
           setErrorsList(data.errors);
-          console.log(data.errors)
+          console.log(data.errors);
         }
       });
   }
@@ -63,11 +59,11 @@ function App() {
                 posts: [...board.posts, data],
               };
             } else {
-              setErrorsList(data.errors)
+              setErrorsList(data.errors);
               return board;
             }
           });
-  
+
           setBoards(updatedBoards);
         } else {
           setErrorsList(data.errors);
@@ -75,81 +71,83 @@ function App() {
       });
   }
 
-
-
   function deletePost(post) {
-      fetch(`/posts/${post.id}`, {
-        method: "DELETE",
-      }).then((res) => {
-        if (res.ok) {
-          // Remove the deleted post from the posts array of the matching board
-          const updatedBoards = boards.map((board) => {
-            if (board.id === parseInt(post.board_id)) {
-              return {
-                ...board,
-                posts: board.posts.filter((p) => p.id !== post.id)
-              };
-            } else {
-              return board;
-            }
-          });
-          setBoards(updatedBoards);
-        }
-      });
-    }
+    fetch(`/posts/${post.id}`, {
+      method: "DELETE",
+    }).then((res) => {
+      if (res.ok) {
+        // Remove the deleted post from the posts array of the matching board
+        const updatedBoards = boards.map((board) => {
+          if (board.id === parseInt(post.board_id)) {
+            return {
+              ...board,
+              posts: board.posts.filter((p) => p.id !== post.id),
+            };
+          } else {
+            return board;
+          }
+        });
+        setBoards(updatedBoards);
+      }
+    });
+  }
 
- 
-    // function handleEditPost(editedPost){
-    //   const updatedBoards = boards.map((board) => {
-    //     if (board.id === parseInt(editedPost.board_id)) {
-    //       return {
-    //         ...board,
-    //         posts: board.posts.filter((p) => p.id !== editedPost.id)
-    //       };
-    //     } else {
-    //       return board;
-    //     }
-    //   });
-    //   setBoards(updatedBoards);
-    // }
-    
-  
-    function handleEditPost(editedPost) {
-      const updatedBoards = boards.map((board) => {
-        if (board.id === parseInt(editedPost.board_id)) {
-          const updatedPosts = board.posts.map((p) => {
-            if (p.id === editedPost.id) {
-              return editedPost;
-            } else {
-              return p;
-            }
-          });
-          return {
-            ...board,
-            posts: updatedPosts
-          };
-        } else {
-          return board;
-        }
-      });
-      setBoards(updatedBoards);
-    }
-  
+
+  function handleEditPost(editedPost) {
+    const updatedBoards = boards.map((board) => {
+      if (board.id === parseInt(editedPost.board_id)) {
+        const updatedPosts = board.posts.map((p) => {
+          if (p.id === editedPost.id) {
+            return editedPost;
+          } else {
+            return p;
+          }
+        });
+        return {
+          ...board,
+          posts: updatedPosts,
+        };
+      } else {
+        return board;
+      }
+    });
+    setBoards(updatedBoards);
+  }
 
   return (
     <div className="App">
-    <UserProvider>
-      <Router>
-      <NavBar />
-      <Routes>
-      <Route path="/boards" element={<Boards errorsList={errorsList} boards={boards} addBoard={addBoard} />} />
-      <Route path="/boards/:id"  element={<Posts errorsList={errorsList} deletePost={deletePost} handleEditPost={handleEditPost} addPost={addPost} boards={boards}/>}/>
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/login" element={<Login />} />
-      </Routes>
-      </Router>
-    </UserProvider>
+      <UserProvider>
+        <Router>
+          <NavBar />
+          <Routes>
+            <Route
+              path="/boards"
+              element={
+                <Boards
+                  errorsList={errorsList}
+                  boards={boards}
+                  addBoard={addBoard}
+                />
+              }
+            />
+            <Route
+              path="/boards/:id"
+              element={
+                <Posts
+                  errorsList={errorsList}
+                  deletePost={deletePost}
+                  handleEditPost={handleEditPost}
+                  addPost={addPost}
+                  boards={boards}
+                />
+              }
+            />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </Router>
+      </UserProvider>
     </div>
   );
-  }
+}
 export default App;
