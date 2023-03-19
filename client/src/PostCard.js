@@ -1,14 +1,17 @@
-import React from 'react'
+import { useState, useContext } from "react";
+import { UserContext } from "./context/user";
+
 // import { useState } from 'react';
 import PostEditForm from './PostEditForm';
 
 export default function PostCard({post, handleEditPost, deletePost}) {
-    // const [isEdit, setIsEdit] = useState(false);
+    const [isEdit, setIsEdit] = useState(false);
+    const { user } = useContext(UserContext);
 
 
-    // function handleEditClick() {
-    //     setIsEdit(!isEdit);
-    //   }
+    function handleEditClick() {
+        setIsEdit(!isEdit);
+      }
 
     function handleDeleteClick(e, post) {
         e.preventDefault()
@@ -22,40 +25,46 @@ export default function PostCard({post, handleEditPost, deletePost}) {
         <div key={post.id}>
           <h3>{post.img_url}</h3> 
           <p>{post.post_body}</p>
-          <button id='deleteBtn'
+          {/* <button id='deleteBtn'
           onClick={(e) => handleDeleteClick(e, post)}
-          >X</button> 
+          >X</button>  */}
           <br/>
-          <PostEditForm post={post} handleEditPost={handleEditPost} />
-          {/* <button id='editBtn' onClick={(e) => handleEditClick(e, goal)}>Edit</button>  */}
+          {/* <PostEditForm post={post} handleEditPost={handleEditPost} /> */}
+          <button id='editBtn' onClick={(e) => handleEditClick(e, post)}>Edit</button> 
         </div>
       );
 
 
 
-    //   const renderEditGoal = (
-    //     <div key={goal.id}>
-    //       {/* <button onClick={(e) => onDeleteClick(e, goal)}>X</button> &nbsp; */}
-    //       <GoalEditForm
-    //         goal={goal}
-    //         onEditClick={handleEditClick}
-    //         handleEditGoal={handleEditGoal}
-    //       />
-    //       <button id='editBtn' onClick={(e) => handleEditClick(e, goal)}>Edit</button>
-    //       {/* <span style={{ fontWeight: "bold" }}>{goal.goal}</span>{" "} */}
-    //     </div>
-    //   );
+      const renderEditPost = (
+        <div key={post.id}>
+          <h3>{post.img_url}</h3> 
+          <p>{post.post_body}</p>
+          <button id='deleteBtn'
+          onClick={(e) => handleDeleteClick(e, post)}
+          >X</button> 
+          <br/>
+          <PostEditForm post={post} handleEditPost={handleEditPost} handleEditClick={handleEditClick} />
+          <button id='editBtn' onClick={(e) => handleEditClick(e, post)}>Edit</button> 
+        </div>
+      );
+
+    const renderNotUserPost = (
+        <div key={post.id}>
+        <h3>{post.img_url}</h3> 
+        <p>{post.post_body}</p>
+        </div>
+    )
 
 
 
-
-
-  return (
-    <div>
-        {/* { isEdit? */}
-    {/* //   <>{renderEditGoal}</>: */}
-      <>{renderPost}</>
-        {/* // } */}
-    </div>
-  )
+    return (
+        <div>
+          {post.user_id !== user.id ? renderNotUserPost :
+            (isEdit ?
+              <>{renderEditPost}</> :
+              <>{renderPost}</>
+            )}
+        </div>
+      )
 }

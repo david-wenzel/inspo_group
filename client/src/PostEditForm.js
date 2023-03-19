@@ -3,10 +3,9 @@ import { useState, useContext } from 'react'
 import { UserContext } from "./context/user";
 
 
-export default function PostEditForm({post, handleEditPost, onEditClick}) {
+export default function PostEditForm({post, handleEditPost, handleEditClick}) {
 
     
-    // const postId = post.id
     const { user } = useContext(UserContext);
 
     
@@ -43,8 +42,7 @@ export default function PostEditForm({post, handleEditPost, onEditClick}) {
             
             
       
-          // set isEdit state to !isEdit so the form is no longer displayed
-        //   onEditClick();
+        handleEditClick()
     }
 
 

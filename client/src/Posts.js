@@ -8,6 +8,7 @@ export default function Posts({ boards, addPost, deletePost, handleEditPost }) {
   const [currentBoard, setCurrentBoard] = useState({ posts: [] });
 //   const [errorsList, setErrorsList] = useState([]);
   const { loggedIn } = useContext(UserContext);
+  
 
   const params = useParams();
   const parsedId = parseInt(params.id);
