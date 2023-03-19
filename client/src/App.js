@@ -39,7 +39,8 @@ function App() {
           setBoards([...boards, data]);
           // navigate("/boards");
         } else {
-          setErrorsList(errorsList);
+          setErrorsList(data.errors);
+          console.log(data.errors)
         }
       });
   }
