@@ -54,3 +54,21 @@ button:active {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Increase the box shadow when hovered or focused */
   color: #444; /* Set the text color when hovered or focused */
 }
+
+input, textarea, select {
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 10px;
+  border: 1px solid #ccc;
+  border-radius: 0px;
+  outline: none;
+}
+
+input[type="checkbox"], input[type="radio"] {
+  display: inline-block;
+  margin-right: 4px;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #333;
+}
