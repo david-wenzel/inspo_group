@@ -23,3 +23,34 @@
     transform: rotate(360deg); /* Set the final rotation of the image to 360 degrees */
   }
 }
+
+button {
+  border: none;
+  outline: none;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+/* Apply minimalist button styles */
+button {
+  color: #333; /* Set button text color */
+  border-radius: 0px; /* Set button border radius */
+  background-color: #fff; /* Set button background color */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  padding: 8px 16px; /* Set button padding */
+  font-weight: 500; /* Set button font weight */
+  transition: all 0.2s ease-in-out; /* Add a smooth transition effect */
+}
+
+/* Add hover and active states */
+button:hover,
+button:focus,
+button:active {
+  background-color: #f0f0f0; /* Set the background color when hovered or focused */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Increase the box shadow when hovered or focused */
+  color: #444; /* Set the text color when hovered or focused */
+}

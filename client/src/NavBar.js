@@ -22,7 +22,7 @@ function Navbar() {
     return (
       <div>
        <NavLink to={'/boards'} ><h1>
-       <img class="spin" src="https://64.media.tumblr.com/c7e6e1223007e837d067692242e72074/098b06a47ed3e2f5-dc/s1280x1920/811a996ad4c1dfb97ada4599a65b39c268335b83.png" alt="Inspo.Group"   
+       <img className="spin" src="https://64.media.tumblr.com/c7e6e1223007e837d067692242e72074/098b06a47ed3e2f5-dc/s1280x1920/811a996ad4c1dfb97ada4599a65b39c268335b83.png" alt="Inspo.Group"   
  />
         </h1></NavLink>        <h3>Hello {user.username}</h3>
         <button onClick={logoutUser}>Logout</button>
@@ -36,7 +36,7 @@ function Navbar() {
     return (
       <div>
        <NavLink to={'/login'} ><h1>
-       <img class="spin" src="https://64.media.tumblr.com/c7e6e1223007e837d067692242e72074/098b06a47ed3e2f5-dc/s1280x1920/811a996ad4c1dfb97ada4599a65b39c268335b83.png" alt="Inspo.Group"    
+       <img className="spin" src="https://64.media.tumblr.com/c7e6e1223007e837d067692242e72074/098b06a47ed3e2f5-dc/s1280x1920/811a996ad4c1dfb97ada4599a65b39c268335b83.png" alt="Inspo.Group"    
  />
         </h1></NavLink>
         {/* <NavLink to="/login"> */}

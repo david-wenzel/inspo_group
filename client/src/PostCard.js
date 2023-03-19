@@ -1,5 +1,7 @@
 import { useState, useContext } from "react";
 import { UserContext } from "./context/user";
+import './App.css';
+
 
 // import { useState } from 'react';
 import PostEditForm from './PostEditForm';

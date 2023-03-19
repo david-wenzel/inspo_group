@@ -1,6 +1,8 @@
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "./context/user";
 import { useParams } from "react-router-dom";
+import './App.css';
+
 import PostCard from "./PostCard";
 import PostForm from "./PostForm";
 

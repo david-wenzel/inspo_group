@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { UserContext } from "./context/user";
 import { NavLink } from "react-router-dom";
 import AddBoardForm from "./AddBoardForm";
+import './App.css';
 
 // import BoardCard from "./BoardCard";
 
