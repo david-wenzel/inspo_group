@@ -20,9 +20,8 @@ function Boards({ boards, errorsList, deleteBoard, addBoard }) {
   if (loggedIn) {
     return (
       <div>
-        <AddBoardForm errorsList={errorsList} addBoard={addBoard} />
-        <br />
         <h1 className="title">inspo.Boards</h1>
+        <AddBoardForm errorsList={errorsList} addBoard={addBoard} />
         {renderBoards}
       </div>
     );

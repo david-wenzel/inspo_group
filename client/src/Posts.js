@@ -47,6 +47,7 @@ export default function Posts({
       <div>
         <h1 className="title">{currentBoard.title}</h1>
         <PostForm id={parsedId} addPost={addPost} errorsList={errorsList} />
+        <br/>
         {renderPosts}
       </div>
     );

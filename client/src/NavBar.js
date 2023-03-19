@@ -20,7 +20,7 @@ function Navbar() {
 
   if (loggedIn) {
     return (
-      <div>
+      <div className="navbar">
         <NavLink to={"/boards"}>
           <h1>
             <img
@@ -30,17 +30,16 @@ function Navbar() {
             />
           </h1>
         </NavLink>
-        <h3>Hello {user.username}</h3>
-        <button onClick={logoutUser}>Logout</button>
+        {/* <h3>Hello {user.username}</h3> */}
+        <button onClick={logoutUser}>Logout {user.username}</button>
         {/* <NavLink to="/"> */}
         {/* <button>Home</button> */}
         {/* </NavLink> */}
-        <hr />
       </div>
     );
   } else {
     return (
-      <div>
+      <div className="navbar">
         <NavLink to={"/login"}>
           <h1>
             <img

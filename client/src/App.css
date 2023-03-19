@@ -1,58 +1,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap');
+
+html, body {
+  height: 100%;
+  /* background-image: linear-gradient(to bottom, #ffffff, #ffffff, #aaaba0); */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .App {
   text-align: center;
   font-family: 'Playfair Display', serif;
   font-style: italic;
-    list-style-type: none;
-
+  width: 100%;
 }
 
 .spin {
-  /* width: 200px; Set the width of the image */
-  height: 200px; /* Set the height of the image */
-  animation-name: spin; /* Set the name of the animation */
-  animation-duration: 60s; /* Set the duration of the animation */
-  animation-iteration-count: infinite; /* Set the iteration count of the animation to infinite */
-  animation-timing-function: linear; /* Set the timing function of the animation */
+  height: 200px;
+  animation: spin 60s linear infinite;
 }
+
 @keyframes spin {
   from {
-    transform: rotate(0deg); /* Set the initial rotation of the image to 0 degrees */
+    transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg); /* Set the final rotation of the image to 360 degrees */
+    transform: rotate(360deg);
   }
 }
 
 button {
-  border: none;
-  outline: none;
-  background: none;
   font-family: inherit;
   font-size: inherit;
   cursor: pointer;
-  padding: 0;
-  margin: 0;
+  color: #333;
+  border-radius: 0px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 8px 16px;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  outline: none;
 }
 
-/* Apply minimalist button styles */
-button {
-  color: #333; /* Set button text color */
-  border-radius: 0px; /* Set button border radius */
-  background-color: #fff; /* Set button background color */
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
-  padding: 8px 16px; /* Set button padding */
-  font-weight: 500; /* Set button font weight */
-  transition: all 0.2s ease-in-out; /* Add a smooth transition effect */
-}
-
-/* Add hover and active states */
 button:hover,
 button:focus,
 button:active {
-  background-color: #f0f0f0; /* Set the background color when hovered or focused */
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Increase the box shadow when hovered or focused */
-  color: #444; /* Set the text color when hovered or focused */
+  background-color: #f0f0f0;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  color: #444;
 }
 
 input, textarea, select {
@@ -62,11 +60,6 @@ input, textarea, select {
   border: 1px solid #ccc;
   border-radius: 0px;
   outline: none;
-}
-
-input[type="checkbox"], input[type="radio"] {
-  display: inline-block;
-  margin-right: 4px;
 }
 
 input:focus, textarea:focus, select:focus {
@@ -82,16 +75,32 @@ input:focus, textarea:focus, select:focus {
 #section {
   color: black;
   text-decoration: none;
-margin-left: auto;
-margin-right: auto;
-padding: 15px;
-font-size: 40px;
+  padding: 15px;
+  font-size: 40px;
 }
 
-#section:hover{
+#section:hover {
   color: #7e6e6e;
   font-size: 45px;
 }
-#section:active{
+
+#section:active {
   color: #e4d9d9;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  padding-top: 30px;
+  width: 100%;
+}
+
+.navbar h1, .navbar h3 {
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
 }

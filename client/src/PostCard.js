@@ -30,7 +30,6 @@ export default function PostCard({post, handleEditPost, deletePost}) {
           {/* <button id='deleteBtn'
           onClick={(e) => handleDeleteClick(e, post)}
           >X</button>  */}
-          <br/>
           {/* <PostEditForm post={post} handleEditPost={handleEditPost} /> */}
           <button id='editBtn' onClick={(e) => handleEditClick(e, post)}>Edit</button> 
         </div>
