@@ -107,3 +107,9 @@ input:focus, textarea:focus, select:focus {
 li {
   list-style-type: none;
 }
+
+.about {
+  max-width: 600px;
+  font-size: 20px;
+  font-style: normal;
+}

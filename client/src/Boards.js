@@ -6,7 +6,7 @@ import './App.css';
 
 // import BoardCard from "./BoardCard";
 
-function Boards({ boards, errorsList, deleteBoard, addBoard }) {
+function Boards({ boards, errorsList, addBoard }) {
   const { loggedIn } = useContext(UserContext);
 
   const renderBoards = boards.map((board) => (

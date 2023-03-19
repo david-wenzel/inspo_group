@@ -54,7 +54,7 @@ export default function Posts({
   } else {
     return (
       <div>
-        <h3>Please Login or Signup</h3>
+        <h3>404 board not found</h3>
       </div>
     );
   }
