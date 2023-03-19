@@ -23,7 +23,7 @@ export default function PostCard({post, handleEditPost, deletePost}) {
 
     const renderPost = (
         <div key={post.id}>
-          <h3>{post.img_url}</h3> 
+      <img src={post.img_url} alt="" />
           <p>{post.post_body}</p>
           {/* <button id='deleteBtn'
           onClick={(e) => handleDeleteClick(e, post)}
@@ -38,7 +38,7 @@ export default function PostCard({post, handleEditPost, deletePost}) {
 
       const renderEditPost = (
         <div key={post.id}>
-          <h3>{post.img_url}</h3> 
+      <img src={post.img_url} alt="" />
           <p>{post.post_body}</p>
           <button id='deleteBtn'
           onClick={(e) => handleDeleteClick(e, post)}
@@ -51,7 +51,7 @@ export default function PostCard({post, handleEditPost, deletePost}) {
 
     const renderNotUserPost = (
         <div key={post.id}>
-        <h3>{post.img_url}</h3> 
+      <img src={post.img_url} alt="" />
         <p>{post.post_body}</p>
         </div>
     )
