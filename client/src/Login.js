@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { UserContext } from "./context/user";
 import './App.css';
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -65,6 +65,7 @@ function Login() {
           {err}
         </li>
       ))}    
+     <NavLink to={"/signup"}> <p>create an account</p></NavLink>
       </div>
     </>
   );
