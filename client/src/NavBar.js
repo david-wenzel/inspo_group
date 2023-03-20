@@ -31,7 +31,7 @@ function Navbar() {
           </h1>
         </NavLink>
         {/* <h3>Hello {user.username}</h3> */}
-        <button onClick={logoutUser}>Logout {user.username}</button>
+        <button id="logout" onClick={logoutUser}>Logout {user.username}</button>
         {/* <NavLink to="/"> */}
         {/* <button>Home</button> */}
         {/* </NavLink> */}
